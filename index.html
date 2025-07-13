@@ -7,24 +7,58 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
+      padding: 0;
       margin: 0;
       background-color: #f9f9f9;
     }
+
+    /* 🔷 Transparent Header */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      background-color: rgba(255, 255, 255, 0.7); /* transparent */
+      backdrop-filter: blur(8px);
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .top-bar button {
+      background-color: transparent;
+      border: 1px solid #3498db;
+      color: #3498db;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .top-bar button:hover {
+      background-color: #3498db;
+      color: white;
+    }
+
     h1 {
       text-align: center;
       color: #2c3e50;
+      margin-top: 20px;
     }
+
     p {
       text-align: center;
       color: #333;
     }
+
     #instruction {
       text-align: center;
       color: #e74c3c;
       font-weight: bold;
       margin-top: 10px;
     }
+
     .buttons {
       display: flex;
       flex-wrap: wrap;
@@ -32,6 +66,7 @@
       gap: 10px;
       margin: 20px 0;
     }
+
     button {
       padding: 10px 20px;
       font-size: 16px;
@@ -41,9 +76,11 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #2980b9;
     }
+
     .result {
       background-color: #ecf0f1;
       padding: 15px;
@@ -52,10 +89,12 @@
       margin: 0 auto 20px;
       display: none;
     }
+
     .result p {
       margin: 5px 0;
       font-weight: bold;
     }
+
     .apply {
       display: block;
       width: 100%;
@@ -63,10 +102,12 @@
       margin: 0 auto;
       text-align: center;
     }
+
     .apply button {
       background-color: #27ae60;
       margin-top: 20px;
     }
+
     .apply button:disabled {
       background-color: #bdc3c7;
       cursor: not-allowed;
@@ -74,6 +115,13 @@
   </style>
 </head>
 <body>
+
+  <!-- 🔷 Transparent Top Header -->
+  <div class="top-bar">
+    <button onclick="goHome()">🏠 Home</button>
+    <button onclick="toggleLanguage()">🌐 සිංහල / English</button>
+  </div>
+
   <h1>CapitalLanka වෙත ඔබව සාදරයෙන් පිළිගන්නවා!</h1>
   <p>ඔබට රුපියල් 40000 සිට රුපියල් 500000 දක්වා ණයක් ලබාගන්න දැම්ම Apply කරන්න</p>
 
@@ -105,7 +153,6 @@
 
   <script>
     function calculate(amount) {
-      // Hide instruction message
       document.getElementById("instruction").style.display = "none";
 
       let months = 0;
@@ -132,7 +179,14 @@
 
     function applyNow() {
       alert("ඔබේ ණය අයදුම සාර්ථකව සකසමින් පවතී!");
-      // WhatsApp link එකක් හෝ form submission එකක් මෙතැනට දාන්න පුළුවන්
+    }
+
+    function goHome() {
+      window.location.href = "#"; // Replace with real home URL if needed
+    }
+
+    function toggleLanguage() {
+      alert("Language switching coming soon!"); // You can integrate real i18n later
     }
   </script>
 </body>
