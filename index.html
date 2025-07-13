@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <title>Capital Lanka Pvt Ltd</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    .amount-buttons {
+      margin: 20px 0;
+    }
+
+    .amount-buttons button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .amount-buttons button:hover {
+      background-color: #2980b9;
+    }
+
+    .amount-buttons button.selected {
+      background-color: #27ae60;
+    }
+
+    #apply-section {
+      margin-top: 30px;
+    }
+
+    #installments {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #34495e;
+    }
+
+    #apply-btn {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 18px;
+      background-color: #e67e22;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    #apply-btn.active {
+      cursor: pointer;
+      opacity: 1;
+    }
+
+    #message {
+      background-color: #dff9fb;
+      color: #130f40;
+      border: 1px solid #7ed6df;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Capital Lanka Pvt Ltd වෙත ඔබව සාදරයෙන් පිළිගන්නවා</h1>
+  <p>ඔබට රුපියල් 40000 සිට 500000 දක්වා ණයක් ලබාගත හැක. දැන්ම Apply කරන්න!</p>
+
+  <div id="message">කරුණාකර මුදලක් තෝරන්න</div>
+
+  <div class="amount-buttons">
+    <button onclick="selectAmount(40000)">40000</button>
+    <button onclick="selectAmount(50000)">50000</button>
+    <button onclick="selectAmount(80000)">80000</button>
+    <button onclick="selectAmount(100000)">100000</button>
+    <button onclick="selectAmount(200000)">200000</button>
+    <button onclick="selectAmount(300000)">300000</button>
+    <button onclick="selectAmount(400000)">400000</button>
+    <button onclick="selectAmount(500000)">500000</button>
+  </div>
+
+  <div id="apply-section">
+    <div id="installments"></div>
+    <button id="apply-btn" onclick="applyLoan()" disabled>Apply</button>
+  </div>
+
+  <script>
+    let selectedAmount = null;
+
+    function selectAmount(amount) {
+      selectedAmount = amount;
+
+      document.querySelectorAll('.amount-buttons button').forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.textContent == amount) {
+          btn.classList.add('selected');
+        }
+      });
+
+      // Enable Apply button
+      const applyBtn = document.getElementById('apply-btn');
+      applyBtn.disabled = false;
+      applyBtn.classList.add('active');
+      applyBtn.style.cursor = 'pointer';
+
+      // Remove alert message
+      document.getElementById('message').style.display = 'none';
+
+      // Calculate interest and installments
+      const interestRate = 8 / 100;
+      const months = 12;
+      const totalInterest = selectedAmount * interestRate;
+      const totalPayable = selectedAmount + totalInterest;
+      const monthlyInstallment = (totalPayable / months).toFixed(2);
+
+      document.getElementById('installments').innerHTML = `
+        <p>📌 පොලී අනුපාතය: 8%</p>
+        <p>💰 ගෙවිය යුතු මුළු මුදල: රු. ${totalPayable.toLocaleString()}</p>
+        <p>📅 මාසික වාරික මුදල: රු. ${monthlyInstallment}</p>
+        <p>🗓 මාස ගණන: 12</p>
+      `;
+    }
+
+    function applyLoan() {
+      if (selectedAmount) {
+        alert(ඔබ රුපියල් ${selectedAmount.toLocaleString()} ක ණය සඳහා Apply කර ඇත.);
+      }
+    }
+  </script>
+
+</body>
+</ht
