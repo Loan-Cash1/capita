@@ -1,130 +1,94 @@
-<!DOCTYPE html>
-<html lang="si">
+<!DOCTYPE html><html lang="si">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Capital Lanka Pvt Ltd</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CapitalLanka Loan</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f4f8;
-      text-align: center;
+      font-family: Arial, sans-serif;
       padding: 20px;
+      margin: 0;
+      background-color: #f9f9f9;
     }
-    h2 {
-      color: #333;
-      margin-bottom: 10px;
+    h1 {
+      text-align: center;
+      color: #2c3e50;
     }
-    .subtitle {
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-    .amount-buttons {
+    .buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 20px;
+      margin: 20px 0;
     }
-    .loan-btn {
-      background-color: #2196F3;
-      color: white;
-      border: none;
-      padding: 15px 25px;
-      border-radius: 8px;
-      cursor: pointer;
+    button {
+      padding: 10px 20px;
       font-size: 16px;
-    }
-    .loan-btn.selected {
-      background-color: #0b7dda;
-    }
-    #installment-info {
-      margin: 15px 0;
-      font-weight: bold;
-      font-size: 18px;
-      color: #222;
-    }
-    #apply-btn {
-      background-color: orange;
-      color: white;
       border: none;
-      padding: 15px 40px;
-      font-size: 16px;
-      border-radius: 10px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 5px;
       cursor: pointer;
     }
-    #apply-btn:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
+    button:hover {
+      background-color: #2980b9;
     }
-    @media (max-width: 600px) {
-      .loan-btn {
-        flex: 1 1 45%;
-        font-size: 14px;
-      }
+    .result {
+      background-color: #ecf0f1;
+      padding: 15px;
+      border-radius: 5px;
+      max-width: 400px;
+      margin: 0 auto 20px;
+    }
+    .apply {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .apply button {
+      background-color: #27ae60;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
+  <h1>CapitalLanka වෙත ඔබව සාදරයෙන් පිළිගන්නවා!</h1>
+  <p style="text-align:center">ඔබට රුපියල් 40000 සිට රුපියල් 500000 දක්වා ණයක් ලබාගන්න දැම්ම Apply කරන්න</p>  <div class="buttons">
+    <button onclick="calculate(40000)">40000</button>
+    <button onclick="calculate(60000)">60000</button>
+    <button onclick="calculate(80000)">80000</button>
+    <button onclick="calculate(100000)">100000</button>
+    <button onclick="calculate(200000)">200000</button>
+    <button onclick="calculate(300000)">300000</button>
+    <button onclick="calculate(400000)">400000</button>
+    <button onclick="calculate(500000)">500000</button>
+  </div>  <div class="result" id="result" style="display: none">
+    <p><strong>ණය මුදල:</strong> Rs. <span id="amount"></span></p>
+    <p><strong>වාරික ගණන:</strong> <span id="months"></span> මාස</p>
+    <p><strong>පොලී අනුපාතය:</strong> 8%</p>
+    <p><strong>මුළු මුදල ගෙවිය යුතුයි:</strong> Rs. <span id="total"></span></p>
+    <p><strong>මාසික වාරිකය:</strong> Rs. <span id="installment"></span></p>
+  </div>  <div class="apply">
+    <button>ඇප්ලයි කරන්න</button>
+  </div>  <script>
+    function calculate(amount) {
+      let months = 0;
+      if (amount >= 40000 && amount <= 80000) months = 6;
+      else if (amount >= 100000 && amount <= 300000) months = 12;
+      else if (amount >= 400000 && amount <= 500000) months = 24;
 
-  <h2>Capital Lanka Pvt Ltd</h2>
-  <div class="subtitle">ඔබට රු. 40000 සිට 500000 දක්වා ණයක් ලබා ගත හැක. කරුණාකර amount එකක් තෝරන්න!</div>
+      const interest = amount * 0.08;
+      const total = amount + interest;
+      const monthly = (total / months).toFixed(2);
 
-  <div class="amount-buttons">
-    <button class="loan-btn">40000</button>
-    <button class="loan-btn">50000</button>
-    <button class="loan-btn">80000</button>
-    <button class="loan-btn">100000</button>
-    <button class="loan-btn">200000</button>
-    <button class="loan-btn">300000</button>
-    <button class="loan-btn">400000</button>
-    <button class="loan-btn">500000</button>
-  </div>
+      document.getElementById('amount').innerText = amount.toLocaleString();
+      document.getElementById('months').innerText = months;
+      document.getElementById('total').innerText = total.toLocaleString(undefined, {minimumFractionDigits: 2});
+      document.getElementById('installment').innerText = monthly;
 
-  <div id="installment-info"></div>
-
-  <button id="apply-btn" disabled>Apply</button>
-
-  <script>
-    const loanButtons = document.querySelectorAll('.loan-btn');
-    const installmentText = document.getElementById('installment-info');
-    const applyBtn = document.getElementById('apply-btn');
-
-    let selectedAmount = 0;
-
-    function calculateInstallment(amount) {
-      const interestRate = 0.03; // 3% monthly interest
-      const months = 12; // Fixed 12-month loan
-      const total = amount * (1 + interestRate * months);
-      const installment = Math.round(total / months);
-      return installment;
+      document.getElementById('result').style.display = 'block';
     }
-
-    loanButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Remove previous selection
-        loanButtons.forEach(btn => btn.classList.remove('selected'));
-
-        // Mark this button as selected
-        button.classList.add('selected');
-
-        selectedAmount = parseInt(button.innerText);
-        const installment = calculateInstallment(selectedAmount);
-
-        installmentText.innerText = ඔබේ මාසික වාරිකය: රු. ${installment};
-        applyBtn.disabled = false;
-      });
-    });
-
-    applyBtn.addEventListener('click', () => {
-      if (selectedAmount === 0) {
-        alert('කරුණාකර මුදලක් තෝරන්න');
-      } else {
-        alert(ඔබ තෝරාගෙන ඇති මුදල: රු. ${selectedAmount}\nමාසික වාරිකය: රු. ${calculateInstallment(selectedAmount)}\n\nඔබගේ ඉල්ලීම යොමු කෙරේ...);
-        // Redirect or submit form here if needed
-      }
-    });
-  </script>
-
-</body>
+  </script></body>
 </html>
