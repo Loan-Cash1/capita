@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CapitalLanka Loan</title>
   <style>
     body {
@@ -12,7 +12,6 @@
       background-color: #f9f9f9;
     }
 
-    /* 🔷 Transparent Header */
     .top-bar {
       position: sticky;
       top: 0;
@@ -21,7 +20,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 10px 15px;
-      background-color: rgba(255, 255, 255, 0.7); /* transparent */
+      background-color: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(8px);
       box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     }
@@ -60,24 +59,25 @@
     }
 
     .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 10px;
-      margin: 20px 0;
+      max-width: 500px;
+      margin: 20px auto;
     }
 
-    button {
-      padding: 10px 20px;
+    .buttons button {
+      padding: 15px 10px;
       font-size: 16px;
       border: none;
       background-color: #3498db;
       color: white;
       border-radius: 5px;
       cursor: pointer;
+      transition: 0.2s ease;
     }
 
-    button:hover {
+    .buttons button:hover {
       background-color: #2980b9;
     }
 
@@ -106,6 +106,12 @@
     .apply button {
       background-color: #27ae60;
       margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      color: white;
+      cursor: pointer;
     }
 
     .apply button:disabled {
@@ -116,18 +122,18 @@
 </head>
 <body>
 
-  <!-- 🔷 Transparent Top Header -->
+  <!-- Top Bar -->
   <div class="top-bar">
     <button onclick="goHome()">🏠 Home</button>
     <button onclick="toggleLanguage()">🌐 සිංහල / English</button>
   </div>
 
   <h1>CapitalLanka වෙත ඔබව සාදරයෙන් පිළිගන්නවා!</h1>
-  <p>ඔබට රුපියල් 40000 සිට රුපියල් 500000 දක්වා ණයක් ලබාගන්න දැම්ම Apply කරන්න</p>
+  <p>ඔබට රුපියල් 40000 සිට රුපියල් 600000 දක්වා ණයක් ලබාගන්න දැම්ම Apply කරන්න</p>
 
-  <!-- 🔴 Instruction Message -->
   <p id="instruction">කරුණාකර මුදලක් තෝරන්න</p>
 
+  <!-- Equal Size Buttons -->
   <div class="buttons">
     <button onclick="calculate(40000)">40000</button>
     <button onclick="calculate(60000)">60000</button>
@@ -137,8 +143,10 @@
     <button onclick="calculate(300000)">300000</button>
     <button onclick="calculate(400000)">400000</button>
     <button onclick="calculate(500000)">500000</button>
+    <button onclick="calculate(600000)">600000</button>
   </div>
 
+  <!-- Result Area -->
   <div class="result" id="result">
     <p>ණය මුදල: Rs. <span id="amount"></span></p>
     <p>වාරික ගණන: <span id="months"></span> මාස</p>
@@ -147,6 +155,7 @@
     <p>මාසික වාරිකය: Rs. <span id="installment"></span></p>
   </div>
 
+  <!-- Apply Button -->
   <div class="apply">
     <button id="applyBtn" disabled onclick="applyNow()">ඇප්ලයි කරන්න</button>
   </div>
@@ -162,6 +171,8 @@
         months = 12;
       } else if (amount >= 400000 && amount <= 500000) {
         months = 24;
+      } else if (amount == 600000) {
+        months = 30;
       }
 
       const interest = amount * 0.08;
@@ -186,7 +197,7 @@
     }
 
     function toggleLanguage() {
-      alert("Language switching coming soon!"); // You can integrate real i18n later
+      alert("Language switching coming soon!");
     }
   </script>
 </body>
