@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="si">
+<!DOCTYPE html>
+<html lang="si">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,11 +52,17 @@
       background-color: #27ae60;
       margin-top: 20px;
     }
+    .apply button:disabled {
+      background-color: #bdc3c7;
+      cursor: not-allowed;
+    }
   </style>
 </head>
 <body>
   <h1>CapitalLanka වෙත ඔබව සාදරයෙන් පිළිගන්නවා!</h1>
-  <p style="text-align:center">ඔබට රුපියල් 40000 සිට රුපියල් 500000 දක්වා ණයක් ලබාගන්න දැම්ම Apply කරන්න</p>  <div class="buttons">
+  <p style="text-align:center">ඔබට රුපියල් 40000 සිට රුපියල් 500000 දක්වා ණයක් ලබාගන්න දැම්ම Apply කරන්න</p>
+  
+  <div class="buttons">
     <button onclick="calculate(40000)">40000</button>
     <button onclick="calculate(60000)">60000</button>
     <button onclick="calculate(80000)">80000</button>
@@ -64,15 +71,21 @@
     <button onclick="calculate(300000)">300000</button>
     <button onclick="calculate(400000)">400000</button>
     <button onclick="calculate(500000)">500000</button>
-  </div>  <div class="result" id="result" style="display: none">
+  </div>
+
+  <div class="result" id="result" style="display: none">
     <p><strong>ණය මුදල:</strong> Rs. <span id="amount"></span></p>
     <p><strong>වාරික ගණන:</strong> <span id="months"></span> මාස</p>
     <p><strong>පොලී අනුපාතය:</strong> 8%</p>
     <p><strong>මුළු මුදල ගෙවිය යුතුයි:</strong> Rs. <span id="total"></span></p>
     <p><strong>මාසික වාරිකය:</strong> Rs. <span id="installment"></span></p>
-  </div>  <div class="apply">
-    <button>ඇප්ලයි කරන්න</button>
-  </div>  <script>
+  </div>
+
+  <div class="apply">
+    <button id="applyBtn" disabled onclick="applyNow()">ඇප්ලයි කරන්න</button>
+  </div>
+
+  <script>
     function calculate(amount) {
       let months = 0;
       if (amount >= 40000 && amount <= 80000) months = 6;
@@ -89,6 +102,13 @@
       document.getElementById('installment').innerText = monthly;
 
       document.getElementById('result').style.display = 'block';
+      document.getElementById('applyBtn').disabled = false;
     }
-  </script></body>
+
+    function applyNow() {
+      alert(\"ඔබේ ණය අයදුම සාර්ථකව සකසමින් පවතී!\");
+      // මෙතනින් WhatsApp / Form submission redirect එකක් දාන්න පුළුවන්
+    }
+  </script>
+</body>
 </html>
