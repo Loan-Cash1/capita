@@ -2,51 +2,64 @@
 <html lang="si">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Capital Lanka Pvt Ltd</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f0f4f8;
+      background: #f7f9fb;
+      margin: 0;
+      padding: 20px;
       text-align: center;
-      padding: 30px;
     }
 
     h1 {
       color: #2c3e50;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #34495e;
     }
 
     .amount-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
       margin: 20px 0;
     }
 
     .amount-buttons button {
-      margin: 10px;
-      padding: 10px 20px;
+      flex: 1 1 30%;
+      padding: 12px;
       font-size: 16px;
       background-color: #3498db;
       color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .amount-buttons button:hover {
-      background-color: #2980b9;
     }
 
     .amount-buttons button.selected {
-      background-color: #27ae60;
+      background-color: #2ecc71;
     }
 
-    #apply-section {
-      margin-top: 30px;
+    #message {
+      background-color: #ffeaa7;
+      color: #2d3436;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      font-weight: bold;
     }
 
     #installments {
       margin-top: 20px;
-      font-size: 18px;
-      color: #34495e;
+      font-size: 16px;
+      color: #2d3436;
     }
 
     #apply-btn {
@@ -66,21 +79,22 @@
       opacity: 1;
     }
 
-    #message {
-      background-color: #dff9fb;
-      color: #130f40;
-      border: 1px solid #7ed6df;
-      padding: 10px;
-      margin-top: 20px;
-      border-radius: 8px;
-      font-size: 16px;
+    @media (max-width: 500px) {
+      .amount-buttons button {
+        flex: 1 1 45%;
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
   <h1>Capital Lanka Pvt Ltd වෙත ඔබව සාදරයෙන් පිළිගන්නවා</h1>
-  <p>ඔබට රුපියල් 40000 සිට 500000 දක්වා ණයක් ලබාගත හැක. දැන්ම Apply කරන්න!</p>
+  <p>ඔබට රු. 40000 සිට 500000 දක්වා ණයක් ලබා ගත හැක. දැන්ම Apply කරන්න!</p>
 
   <div id="message">කරුණාකර මුදලක් තෝරන්න</div>
 
@@ -95,54 +109,60 @@
     <button onclick="selectAmount(500000)">500000</button>
   </div>
 
-  <div id="apply-section">
-    <div id="installments"></div>
-    <button id="apply-btn" onclick="applyLoan()" disabled>Apply</button>
-  </div>
+  <div id="installments"></div>
+
+  <button id="apply-btn" onclick="applyLoan()" disabled>Apply</button>
 
   <script>
     let selectedAmount = null;
 
+    function getLoanPeriod(amount) {
+      if (amount <= 100000) return 6;
+      if (amount <= 400000) return 12;
+      return 24;
+    }
+
     function selectAmount(amount) {
       selectedAmount = amount;
 
+      // UI selection
       document.querySelectorAll('.amount-buttons button').forEach(btn => {
         btn.classList.remove('selected');
-        if (btn.textContent == amount) {
+        if (parseInt(btn.textContent) === amount) {
           btn.classList.add('selected');
         }
       });
 
-      // Enable Apply button
+      // Activate Apply button
       const applyBtn = document.getElementById('apply-btn');
       applyBtn.disabled = false;
       applyBtn.classList.add('active');
       applyBtn.style.cursor = 'pointer';
 
-      // Remove alert message
+      // Hide message
       document.getElementById('message').style.display = 'none';
 
-      // Calculate interest and installments
+      // Calculate interest
       const interestRate = 8 / 100;
-      const months = 12;
-      const totalInterest = selectedAmount * interestRate;
-      const totalPayable = selectedAmount + totalInterest;
+      const months = getLoanPeriod(amount);
+      const totalPayable = amount + (amount * interestRate);
       const monthlyInstallment = (totalPayable / months).toFixed(2);
 
+      // Display info
       document.getElementById('installments').innerHTML = `
         <p>📌 පොලී අනුපාතය: 8%</p>
-        <p>💰 ගෙවිය යුතු මුළු මුදල: රු. ${totalPayable.toLocaleString()}</p>
-        <p>📅 මාසික වාරික මුදල: රු. ${monthlyInstallment}</p>
-        <p>🗓 මාස ගණන: 12</p>
+        <p>💰 සම්පූර්ණ ගෙවිය යුතු මුදල: රු. ${totalPayable.toLocaleString()}</p>
+        <p>📅 මාසික වාරිකය: රු. ${monthlyInstallment}</p>
+        <p>🗓 මාස ගණන: ${months}</p>
       `;
     }
 
     function applyLoan() {
       if (selectedAmount) {
-        alert(ඔබ රුපියල් ${selectedAmount.toLocaleString()} ක ණය සඳහා Apply කර ඇත.);
+        alert(ඔබ රු. ${selectedAmount.toLocaleString()} ක ණය සඳහා Apply කර ඇත.);
       }
     }
   </script>
 
 </body>
-</ht
+</html>
