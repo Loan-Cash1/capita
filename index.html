@@ -15,6 +15,10 @@
       text-align: center;
       color: #2c3e50;
     }
+    p {
+      text-align: center;
+      color: #333;
+    }
     .buttons {
       display: flex;
       flex-wrap: wrap;
@@ -40,6 +44,11 @@
       border-radius: 5px;
       max-width: 400px;
       margin: 0 auto 20px;
+      display: none;
+    }
+    .result p {
+      margin: 5px 0;
+      font-weight: bold;
     }
     .apply {
       display: block;
@@ -60,7 +69,7 @@
 </head>
 <body>
   <h1>CapitalLanka වෙත ඔබව සාදරයෙන් පිළිගන්නවා!</h1>
-  <p style="text-align:center">ඔබට රුපියල් 40000 සිට රුපියල් 500000 දක්වා ණයක් ලබාගන්න දැම්ම Apply කරන්න</p>
+  <p>ඔබට රුපියල් 40000 සිට රුපියල් 500000 දක්වා ණයක් ලබාගන්න දැම්ම Apply කරන්න</p>
   
   <div class="buttons">
     <button onclick="calculate(40000)">40000</button>
@@ -73,12 +82,12 @@
     <button onclick="calculate(500000)">500000</button>
   </div>
 
-  <div class="result" id="result" style="display: none">
-    <p><strong>ණය මුදල:</strong> Rs. <span id="amount"></span></p>
-    <p><strong>වාරික ගණන:</strong> <span id="months"></span> මාස</p>
-    <p><strong>පොලී අනුපාතය:</strong> 8%</p>
-    <p><strong>මුළු මුදල ගෙවිය යුතුයි:</strong> Rs. <span id="total"></span></p>
-    <p><strong>මාසික වාරිකය:</strong> Rs. <span id="installment"></span></p>
+  <div class="result" id="result">
+    <p>ණය මුදල: Rs. <span id="amount"></span></p>
+    <p>වාරික ගණන: <span id="months"></span> මාස</p>
+    <p>පොලී අනුපාතය: 8%</p>
+    <p>මුළු මුදල ගෙවිය යුතුයි: Rs. <span id="total"></span></p>
+    <p>මාසික වාරිකය: Rs. <span id="installment"></span></p>
   </div>
 
   <div class="apply">
@@ -88,26 +97,30 @@
   <script>
     function calculate(amount) {
       let months = 0;
-      if (amount >= 40000 && amount <= 80000) months = 6;
-      else if (amount >= 100000 && amount <= 300000) months = 12;
-      else if (amount >= 400000 && amount <= 500000) months = 24;
+      if (amount >= 40000 && amount <= 80000) {
+        months = 6;
+      } else if (amount >= 100000 && amount <= 300000) {
+        months = 12;
+      } else if (amount >= 400000 && amount <= 500000) {
+        months = 24;
+      }
 
       const interest = amount * 0.08;
       const total = amount + interest;
       const monthly = (total / months).toFixed(2);
 
-      document.getElementById('amount').innerText = amount.toLocaleString();
-      document.getElementById('months').innerText = months;
-      document.getElementById('total').innerText = total.toLocaleString(undefined, {minimumFractionDigits: 2});
-      document.getElementById('installment').innerText = monthly;
+      document.getElementById("amount").innerText = amount.toLocaleString();
+      document.getElementById("months").innerText = months;
+      document.getElementById("total").innerText = total.toLocaleString(undefined, { minimumFractionDigits: 2 });
+      document.getElementById("installment").innerText = parseFloat(monthly).toLocaleString(undefined, { minimumFractionDigits: 2 });
 
-      document.getElementById('result').style.display = 'block';
-      document.getElementById('applyBtn').disabled = false;
+      document.getElementById("result").style.display = "block";
+      document.getElementById("applyBtn").disabled = false;
     }
 
     function applyNow() {
-      alert(\"ඔබේ ණය අයදුම සාර්ථකව සකසමින් පවතී!\");
-      // මෙතනින් WhatsApp / Form submission redirect එකක් දාන්න පුළුවන්
+      alert("ඔබේ ණය අයදුම සාර්ථකව සකසමින් පවතී!");
+      // මෙතැනින් redirect එකක් දාන්න පුළුවන් (WhatsApp / Form)
     }
   </script>
 </body>
