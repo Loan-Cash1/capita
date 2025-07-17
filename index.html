@@ -1,122 +1,83 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CapitalLanka Loan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Selection</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 0;
       margin: 0;
-      background-color: #f9f9f9;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
     }
 
-    .top-bar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 15px;
-      background-color: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .top-bar button {
-      background-color: transparent;
-      border: 1px solid #3498db;
-      color: #3498db;
-      padding: 5px 10px;
-      border-radius: 4px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .top-bar button:hover {
-      background-color: #3498db;
-      color: white;
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
     }
 
     h1 {
-      text-align: center;
-      color: #2c3e50;
-      margin-top: 20px;
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #0a0a0a;
     }
 
     p {
-      text-align: center;
-      color: #333;
+      font-size: 16px;
+      margin-bottom: 10px;
     }
 
-    #instruction {
-      text-align: center;
-      color: #e74c3c;
+    .note {
+      color: red;
       font-weight: bold;
-      margin-top: 10px;
+      margin: 15px 0;
     }
 
-    .buttons {
+    .amount-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
-      max-width: 500px;
-      margin: 20px auto;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 15px;
+      justify-items: center;
+      margin-bottom: 30px;
     }
 
-    .buttons button {
-      padding: 15px 10px;
-      font-size: 16px;
-      border: none;
-      background-color: #3498db;
+    .amount-button {
+      background-color: #2196F3;
       color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .buttons button:hover {
-      background-color: #2980b9;
-    }
-
-    .result {
-      background-color: #ecf0f1;
-      padding: 15px;
-      border-radius: 5px;
-      max-width: 400px;
-      margin: 0 auto 20px;
-      display: none;
-    }
-
-    .result p {
-      margin: 5px 0;
-      font-weight: bold;
-    }
-
-    .apply {
-      display: block;
+      border: none;
+      padding: 12px 0;
       width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .apply button {
-      background-color: #27ae60;
-      margin-top: 20px;
-      padding: 12px 20px;
+      border-radius: 8px;
       font-size: 16px;
-      border-radius: 6px;
-      border: none;
-      color: white;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
 
-    .apply button:disabled {
-      background-color: #bdc3c7;
+    .amount-button:hover {
+      background-color: #0b7dda;
+    }
+
+    .apply-btn {
+      background-color: #ccc;
+      color: white;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
       cursor: not-allowed;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 20px;
+      }
+
+      .amount-button {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
