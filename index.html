@@ -547,45 +547,46 @@ It was a stress-free experience for me
   setInterval(autoScrollSlider, 2000); // Scroll every 3 seconds
 </script>
 
-  <script>
-    function calculate(amount) {
-      document.getElementById("instruction").style.display = "none";
+ <script>
+  function calculate(amount) {
+    document.getElementById("instruction").style.display = "none";
 
-      let months = 0;
-      if (amount >= 40000 && amount <= 80000) {
-        months = 6;
-      } else if (amount >= 100000 && amount <= 300000) {
-        months = 12;
-      } else if (amount >= 400000 && amount <= 500000) {
-        months = 24;
-      } else if (amount == 600000) {
-        months = 30;
-      }
-
-      const interest = amount * 0.08;
-      const total = amount + interest;
-      const monthly = (total / months).toFixed(2);
-
-      document.getElementById("amount").innerText = amount.toLocaleString();
-      document.getElementById("months").innerText = months;
-      document.getElementById("total").innerText = total.toLocaleString(undefined, { minimumFractionDigits: 2 });
-      document.getElementById("installment").innerText = parseFloat(monthly).toLocaleString(undefined, { minimumFractionDigits: 2 });
-
-      document.getElementById("result").style.display = "block";
-      document.getElementById("applyBtn").disabled = false;
+    let months = 0;
+    if (amount >= 40000 && amount <= 80000) {
+      months = 6;
+    } else if (amount >= 100000 && amount <= 300000) {
+      months = 12;
+    } else if (amount >= 400000 && amount <= 500000) {
+      months = 24;
+    } else if (amount == 600000) {
+      months = 30;
     }
 
-    function applyNow() {
-      alert("ඔබේ ණය අයදුම සාර්ථකව සකසමින් පවතී!");
-    }
+    const interest = amount * 0.08;
+    const total = amount + interest;
+    const monthly = (total / months).toFixed(2);
 
-    function goHome() {
-      window.location.href = "#"; // Replace with real home URL if needed
-    }
+    document.getElementById("amount").innerText = amount.toLocaleString();
+    document.getElementById("months").innerText = months;
+    document.getElementById("total").innerText = total.toLocaleString(undefined, { minimumFractionDigits: 2 });
+    document.getElementById("installment").innerText = parseFloat(monthly).toLocaleString(undefined, { minimumFractionDigits: 2 });
 
-    function toggleLanguage() {
-      alert("Language switching coming soon!");
-    }
-  </script>
+    document.getElementById("result").style.display = "block";
+    document.getElementById("applyBtn").disabled = false;
+  }
+
+  function applyNow() {
+    // Redirect to your real form page
+    window.location.href = "https://loan-cash1.github.io/capital/";
+  }
+
+  function goHome() {
+    window.location.href = "#"; // change this if you have a home page
+  }
+
+  function toggleLanguage() {
+    alert("Language switching coming soon!");
+  }
+</script>
 </body>
 </html>                          මෙකෙ සියල්ලම තියෙන්නෙ සිංහල ඉංග්‍රීසි කලවමෙ මට මෙක සම්පූර්ණ සිංහල කරලා දෙන්න    එකක්වත් අඩු නැතුව ෆුල් කෝඩ් එකම එවන්න පුළුවන්ද
