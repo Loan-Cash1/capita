@@ -484,6 +484,88 @@ It was a stress-free experience for me
  </div>
 </div> 
 
+  <!-- FAQ Section Start -->
+<div style="max-width: 600px; margin: auto; font-family: sans-serif;">
+  <div class="faq-item" style="border-bottom: 1px solid #ccc; padding: 16px 0;">
+    <div class="faq-question" style="font-weight: bold; display: flex; justify-content: space-between; cursor: pointer; font-size: 1rem;">
+      Which type of loan does not require a credit check?
+      <span class="plus-icon" style="font-size: 1.2rem; transition: transform 0.3s ease;">+</span>
+    </div>
+    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; font-size: 0.95rem; margin-top: 10px;">
+      Loans like payday loans, title loans, or some personal loans from alternative lenders might not require a credit check.
+    </div>
+  </div>
+
+  <div class="faq-item" style="border-bottom: 1px solid #ccc; padding: 16px 0;">
+    <div class="faq-question" style="font-weight: bold; display: flex; justify-content: space-between; cursor: pointer; font-size: 1rem;">
+      How do I make sure I get approved for a loan?
+      <span class="plus-icon" style="font-size: 1.2rem; transition: transform 0.3s ease;">+</span>
+    </div>
+    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; font-size: 0.95rem; margin-top: 10px;">
+      Maintain a stable income, ensure accurate application details, and meet lender eligibility criteria.
+    </div>
+  </div>
+
+  <div class="faq-item" style="border-bottom: 1px solid #ccc; padding: 16px 0;">
+    <div class="faq-question" style="font-weight: bold; display: flex; justify-content: space-between; cursor: pointer; font-size: 1rem;">
+      Why you should install the online loans application
+      <span class="plus-icon" style="font-size: 1.2rem; transition: transform 0.3s ease;">+</span>
+    </div>
+    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; font-size: 0.95rem; margin-top: 10px;">
+      For faster access, easier tracking, and push notifications on your loan status.
+    </div>
+  </div>
+
+  <div class="faq-item" style="border-bottom: 1px solid #ccc; padding: 16px 0;">
+    <div class="faq-question" style="font-weight: bold; display: flex; justify-content: space-between; cursor: pointer; font-size: 1rem;">
+      Fast online loans and their main advantages
+      <span class="plus-icon" style="font-size: 1.2rem; transition: transform 0.3s ease;">+</span>
+    </div>
+    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; font-size: 0.95rem; margin-top: 10px;">
+      Instant approval, minimal paperwork, and direct transfer to your account.
+    </div>
+  </div>
+
+  <div class="faq-item" style="border-bottom: 1px solid #ccc; padding: 16px 0;">
+    <div class="faq-question" style="font-weight: bold; display: flex; justify-content: space-between; cursor: pointer; font-size: 1rem;">
+      For what purposes can I use my online loan?
+      <span class="plus-icon" style="font-size: 1.2rem; transition: transform 0.3s ease;">+</span>
+    </div>
+    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; font-size: 0.95rem; margin-top: 10px;">
+      You can use it for emergencies, education, medical bills, home improvements, or travel.
+    </div>
+  </div>
+
+  <div class="faq-item" style="border-bottom: 1px solid #ccc; padding: 16px 0;">
+    <div class="faq-question" style="font-weight: bold; display: flex; justify-content: space-between; cursor: pointer; font-size: 1rem;">
+      What is the process for repaying my loan?
+      <span class="plus-icon" style="font-size: 1.2rem; transition: transform 0.3s ease;">+</span>
+    </div>
+    <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; font-size: 0.95rem; margin-top: 10px;">
+      Repayment is usually done via monthly installments automatically deducted from your bank account.
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active');
+      const answer = item.querySelector('.faq-answer');
+      const icon = item.querySelector('.plus-icon');
+      if (item.classList.contains('active')) {
+        answer.style.maxHeight = "200px";
+        answer.style.opacity = "1";
+        icon.style.transform = "rotate(45deg)";
+      } else {
+        answer.style.maxHeight = "0";
+        answer.style.opacity = "0";
+        icon.style.transform = "rotate(0deg)";
+      }
+    });
+  });
+</script>
+<!-- FAQ Section End -->
   
 </section>
 <!-- End of Hero Section -->
