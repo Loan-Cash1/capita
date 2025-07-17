@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CapitalLanka ණය</title>
+  <title>CapitalLanka Loan</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -122,303 +122,468 @@
 </head>
 <body>
 
+  <!-- Top Bar -->
   <div class="top-bar">
-    <button onclick="goHome()">🏠 මුල් පිටුව</button>
-    <button onclick="toggleLanguage()">🌐 English ↔ සිංහල</button>
+    <button onclick="goHome()">🏠 Home</button>
+    <button onclick="toggleLanguage()">🌐 සිංහල / English</button>
   </div>
 
-  <h1>CapitalLanka වෙත ඔබව ආදරයෙන් පිළිගනිමු!</h1>
-  <p>රුපියල් 40,000 සිට රුපියල් 500,000 දක්වාට ණය ලබා ගැනීමට “Apply කරන්න”</p>
+  <h1>CapitalLanka වෙත ඔබව සාදරයෙන් පිළිගන්නවා!</h1>
+  <p>ඔබට රුපියල් 40000 සිට රුපියල් 500000 දක්වා ණයක් ලබාගන්න දැම්ම Apply කරන්න</p>
 
-  <p id="instruction">කරුණාකර මුලින්ම මුදලක් තෝරන්න</p>
+  <p id="instruction">කරුණාකර මුදලක් තෝරන්න</p>
 
+  <!-- Equal Size Buttons -->
   <div class="buttons">
-    <button onclick="calculate(40000)">40,000</button>
-    <button onclick="calculate(60000)">60,000</button>
-    <button onclick="calculate(80000)">80,000</button>
-    <button onclick="calculate(100000)">100,000</button>
-    <button onclick="calculate(200000)">200,000</button>
-    <button onclick="calculate(300000)">300,000</button>
-    <button onclick="calculate(400000)">400,000</button>
-    <button onclick="calculate(500000)">500,000</button>
+    <button onclick="calculate(40000)">40000</button>
+    <button onclick="calculate(60000)">60000</button>
+    <button onclick="calculate(80000)">80000</button>
+    <button onclick="calculate(100000)">100000</button>
+    <button onclick="calculate(200000)">200000</button>
+    <button onclick="calculate(300000)">300000</button>
+    <button onclick="calculate(400000)">400000</button>
+    <button onclick="calculate(500000)">500000</button>
   </div>
 
+  <!-- Result Area -->
   <div class="result" id="result">
     <p>ණය මුදල: Rs. <span id="amount"></span></p>
-    <p>වාරික ගෙවීම් මාස ගණන: <span id="months"></span> මාස</p>
+    <p>වාරික ගණන: <span id="months"></span> මාස</p>
     <p>පොලී අනුපාතය: 8%</p>
-    <p>මුළු ගෙවිය යුතු මුදල: Rs. <span id="total"></span></p>
+    <p>මුළු මුදල ගෙවිය යුතුයි: Rs. <span id="total"></span></p>
     <p>මාසික වාරිකය: Rs. <span id="installment"></span></p>
   </div>
 
+  <!-- Apply Button -->
   <div class="apply">
     <button id="applyBtn" disabled onclick="applyNow()">ඇප්ලයි කරන්න</button>
+   </div> 
+  </div> 
+  
+<!-- CapitalLanka Eligibility Section -->
+<section style="background-color: #e7f5f9; padding: 40px 20px; text-align: center; font-family: 'Segoe UI', sans-serif;">
+  <div style="max-width: 400px; margin: auto;">
+    <h2 style="margin-bottom: 10px; color: #333;">service?</h2>
+
+    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 30px;">
+      <!-- Blue round icon with "C" letter -->
+      <div style="width: 50px; height: 50px; background-color: #007BFF; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+        <span style="color: white; font-weight: bold; font-size: 20px;">C</span>
+      </div>
+      <span style="font-size: 24px; font-weight: bold; color: #0a4a63; margin-left: 10px;">CapitalLanka</span>
+    </div>
+
+    <!-- Age card -->
+    <div style="background-color: #fff; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+      <div style="color: #007BFF; font-size: 28px;">📅</div>
+      <h3 style="margin: 10px 0 5px; color: #222;">Age</h3>
+      <p style="margin: 0; color: #555;">20 - 60 years old</p>
+    </div>
+
+    <!-- Location card -->
+    <div style="background-color: #fff; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+      <div style="color: #007BFF; font-size: 28px;">🌍</div>
+      <h3 style="margin: 10px 0 5px; color: #222;">Location:</h3>
+      <p style="margin: 0; color: #555;">Nationwide</p>
+    </div>
+
+    <!-- Occupation card -->
+    <div style="background-color: #fff; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+      <div style="color: #007BFF; font-size: 28px;">👔</div>
+      <h3 style="margin: 10px 0 5px; color: #222;">Occupation:</h3>
+      <p style="margin: 0; color: #555;">Have stable income</p>
+    </div>
   </div>
+  
+</section>
+  <!-- Team Photo Section -->
+<section style="padding: 40px 20px; background-color: #f5faff; font-family: 'Segoe UI', sans-serif; text-align: center;">
+  <h2 style="color: #0a4a63; font-size: 28px; margin-bottom: 10px;">Meet the CapitalLanka Team</h2>
+  <p style="color: #444; font-size: 16px; margin-bottom: 30px;">Together, we strive to bring financial freedom to every Sri Lankan 🇱🇰</p>
 
-  <section style="background-color: #e7f5f9; padding: 40px 20px; text-align: center; font-family: 'Segoe UI', sans-serif;">
-    <div style="max-width: 400px; margin: auto;">
-      <h2 style="margin-bottom: 10px; color: #333;">සේවා සුදුසුකම්?</h2>
-
-      <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 30px;">
-        <div style="width: 50px; height: 50px; background-color: #007BFF; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-          <span style="color: white; font-weight: bold; font-size: 20px;">C</span>
-        </div>
-        <span style="font-size: 24px; font-weight: bold; color: #0a4a63; margin-left: 10px;">CapitalLanka</span>
-      </div>
-
-      <div style="background-color: #fff; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-        <div style="color: #007BFF; font-size: 28px;">📅</div>
-        <h3 style="margin: 10px 0 5px; color: #222;">වයස</h3>
-        <p style="margin: 0; color: #555;">20 – 60 හැවිරිදි</p>
-      </div>
-
-      <div style="background-color: #fff; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-        <div style="color: #007BFF; font-size: 28px;">🌍</div>
-        <h3 style="margin: 10px 0 5px; color: #222;">ස්ථානය:</h3>
-        <p style="margin: 0; color: #555;">රටපුරා</p>
-      </div>
-
-      <div style="background-color: #fff; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-        <div style="color: #007BFF; font-size: 28px;">👔</div>
-        <h3 style="margin: 10px 0 5px; color: #222;">ව්‍යාජය:</h3>
-        <p style="margin: 0; color: #555;">ස්ථිර ආදායමක් තිබිය යුතුය</p>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding: 40px 20px; background-color: #f5faff; font-family: 'Segoe UI', sans-serif; text-align: center;">
-    <h2 style="color: #0a4a63; font-size: 28px; margin-bottom: 10px;">CapitalLanka කණ්ඩායම හදුන්වා</h2>
-    <p style="color: #444; font-size: 16px; margin-bottom: 30px;">අපි එකට, ශ්‍රී ලංකාවේ ජීවිතවලට ආර්ථික නිදහස ගැනීමට උදව් කරමු 🇱🇰</p>
-    <div style="max-width: 1000px; margin: 0 auto;">
-      <img 
-        src="https://i.ibb.co/7xrbSbzX/Whats-App-Image-2025-07-13-at-14-14-00-a37d404a.jpg" 
-        alt="CapitalLanka කණ්ඩායම් ඡායාරූපය" 
-        style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" 
-      />
-    </div>
-  </section>
+  <!-- Image block -->
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <img 
+      src="https://i.ibb.co/7xrbSbzX/Whats-App-Image-2025-07-13-at-14-14-00-a37d404a.jpg" 
+      alt="CapitalLanka Team Photo" 
+      style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" 
+    />
+  </div>
+</section>
 
   <section id="capitallanka-steps" style="font-family: 'Noto Sans Sinhala', sans-serif; background-color: #f0faff; padding: 40px 20px;">
-    <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 74, 105, 0.1);">
-      <div style="text-align: center; font-size: 26px; font-weight: bold; margin-bottom: 30px; color: #0a4a63;">
-        නව ගිණුමක් සාදා ගැනීම ඉතා පහසුයි
-      </div>
-
-      <div style="background-color: #e6f5ff; border-radius: 15px; padding: 20px; margin-bottom: 20px; position: relative;">
-        <div style="position: absolute; top: -15px; left: -15px; background-color: #b3e0ff; color: #004466; font-weight: bold; border-radius: 50%; width: 45px; height: 45px; line-height: 45px; text-align: center; font-size: 18px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">1</div>
-        <div style="margin-left: 50px; color: #00334d;">
-          <p>ඔබගේ අයදුම්පත පුරවන්න</p>
-          <p>අවශ්‍ය තොරතුරු ඉදිරිපත් කිරීම විනාඩි කිහිපයකි</p>
-        </div>
-      </div>
-
-      <div style="background-color: #e6f5ff; border-radius: 15px; padding: 20px; margin-bottom: 20px; position: relative;">
-        <div style="position: absolute; top: -15px; left: -15px; background-color: #b3e0ff; color: #004466; font-weight: bold; border-radius: 50%; width: 45px; height: 45px; line-height: 45px; text-align: center; font-size: 18px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">2</div>
-        <div style="margin-left: 50px; color: #00334d;">
-          <p>අනුමැතිය සඳහා මිනිත්තුවක් රැදී සිටින්න</p>
-          <p>10 මිනිත්තු ඇතුළත තීරණය කරනු ලැබේ</p>
-        </div>
-      </div>
-
-      <div style="background-color: #d4f4dd; border-radius: 15px; padding: 20px; margin-bottom: 20px; position: relative;">
-        <div style="position: absolute; top: -15px; left: -15px; background-color: #b3e0ff; color: #004466; font-weight: bold; border-radius: 50%; width: 45px; height: 45px; line-height: 45px; text-align: center; font-size: 18px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">3</div>
-        <div style="margin-left: 50px; color: #00334d;">
-          <p>මුදල් ඔබගේ ගිණුමේ යැවැ එයි</p>
-          <p>ඔබට එම මුදල භාවිතා කළ හැක</p>
-        </div>
-      </div>
-
-      <button style="display: block; width: 100%; background-color: #0a4a63; color: white; padding: 14px; border: none; border-radius: 10px; font-size: 16px; margin-top: 30px; cursor: pointer;">ඊළඟට යන්න</button>
+  <div style="max-width: 600px; margin: auto; background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 74, 105, 0.1);">
+    <div style="text-align: center; font-size: 26px; font-weight: bold; margin-bottom: 30px; color: #0a4a63;">
+      නව ගිණුමක් ලබා ගැනීම ඉතාමත් පහසුයි
     </div>
-  </section>
 
-  <div style="padding: 20px; font-family: sans-serif;">
-    <h2 style="font-size: 20px; margin-bottom: 16px;">අප හා සේවාව භාවිතා කළ පාරිභෝගිකයින්ගේ ප්‍රතිචාර</h2>
-
-    <div id="feedbackSlider" style="display: flex; overflow-x: auto; gap: 16px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scroll-behavior: smooth;">
-      <!-- කාඩ් 1 -->
-      <div style="flex: 0 0 auto; background-color: #f7f7f7; border-radius: 12px; width: 300px; padding: 16px; scroll-snap-align: start; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-        <div style="display: flex; align-items: center; margin-bottom: 8px;">
-          <img src="https://i.ibb.co/XZvxwmHd/Whats-App-Image-2025-07-13-at-23-14-00-cbd2c44a.jpg" alt="පාරිභෝගිකයා" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
-          <strong>Pawani De Silva</strong>
-        </div>
-        <div style="background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
-          අපගේ සේවාව ගැන ඔබගේ අදහස?
-        </div>
-        <div style="background-color: #fff; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
-          මට මුලදී කුණු කියා හිතා ගත්තා, නමුත් ඔබලා මට හරි උදව් කළා. අයදුම් ක්‍රියා ක්‍රමය පිළිවෙලින් ලිව්වෙත් නැතුවයි. එම දිනයේම සේවයේ මුදල් ගිණුමේ නළලැව්වෙමි.
-          ස්තූතියි ඔබලා තාමත් ඉක්මන් සේවයට.
-        </div>
-      </div>
-      <!-- කාඩ් 2 -->
-      <div style="flex: 0 0 auto; background-color: #f7f7f7; border-radius: 12px; width: 300px; padding: 16px; scroll-snap-align: start; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-        <div style="display: flex; align-items: center; margin-bottom: 8px;">
-          <img src="https://i.ibb.co/ccf7qgbw/Whats-App-Image-2025-07-13-at-23-18-09-63df7b7c.jpg" alt="පාරිභෝගිකයා" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
-          <strong>Sarath Perera</strong>
-        </div>
-        <div style="background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
-          ඔබගේ අදහස් කුමක්ද?
-        </div>
-        <div style="background-color: #fff; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
-          ඇත්තෙන්ම ඔයාලා හොඳයි! ස්තූතියි CapitalLanka
-        </div>
-      </div>
-      <!-- කාඩ් 3 -->
-      <div style="flex: 0 0 auto; background-color: #f7f7f7; border-radius: 12px; width: 300px; padding: 16px; scroll-snap-align: start; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-        <div style="display: flex; align-items: center; margin-bottom: 8px;">
-          <img src="https://i.ibb.co/x8zcLJ5c/Whats-App-Image-2025-07-13-at-23-21-11-fdb9b956.jpg" alt="පාරිභෝගිකයා" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
-          <strong>Ruwan Silva</strong>
-        </div>
-        <div style="background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
-          අදහස මොනවද?
-        </div>
-        <div style="background-color: #fff; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
-          මට මගේ දුරකථනයෙන් ඇප්ලයි කළා… ඉතා ඉක්මනින් මුදල් ගිණුමට ලැබුණා.
-        </div>
-      </div>
-      <!-- කාඩ් 4 -->
-      <div style="flex: 0 0 auto; background-color: #f7f7f7; border-radius: 12px; width: 300px; padding: 16px; scroll-snap-align: start; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-        <div style="display: flex; align-items: center; margin-bottom: 8px;">
-          <img src="https://i.ibb.co/84fP0pgk/Whats-App-Image-2025-07-13-at-23-26-07-4ba72b48.jpg" alt="පාරිභෝගිකයා" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
-          <strong>Tharushi Lakmini</strong>
-        </div>
-        <div style="background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
-          ඔබගේ අදහස කුමක්ද?
-        </div>
-        <div style="background-color: #fff; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
-          මගේ අම්මාගේ ඖෂධ සඳහා ණය ගත්තා, ක්‍රියාව ඉතා දැඩි වේගයෙන් සිදු වුණා. කඩ වේලාවේ paperwork අවමයි. මට බරපතළභාවයක් තිබුණේ නැහැ.
-        </div>
-      </div>
-      <!-- කාඩ් 5 -->
-      <div style="flex: 0 0 auto; background-color: #f7f7f7; border-radius: 12px; width: 300px; padding: 16px; scroll-snap-align: start; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-        <div style="display: flex; align-items: center; margin-bottom: 8px;">
-          <img src="https://i.ibb.co/FCM2Vwy/Whats-App-Image-2025-07-13-at-23-28-16-ef727728.jpg" alt="පාරිභෝගිකයා" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
-          <strong>Yasodhara Fernando</strong>
-        </div>
-        <div style="background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
-          ඔබගේ අදහස කුමක්ද?
-        </div>
-        <div style="background-color: #fff; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
-          වෘත්තීයමය සේවාව සහ වේගය මම රස විඳී. සුපිරි සේවාවක්!
-        </div>
+    <div style="background-color: #e6f5ff; border-radius: 15px; padding: 20px; margin-bottom: 20px; position: relative;">
+      <div style="position: absolute; top: -15px; left: -15px; background-color: #b3e0ff; color: #004466; font-weight: bold; border-radius: 50%; width: 45px; height: 45px; line-height: 45px; text-align: center; font-size: 18px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">1</div>
+      <div style="margin-left: 50px; color: #00334d;">
+        <p>ඔබගේ අයදුම්පත සම්පූර්ණ කරන්න</p>
+        <p>අවශ්‍ය විස්තර පිරවීමට විනාඩි කිහිපයක් පමණයි</p>
       </div>
     </div>
+
+    <div style="background-color: #e6f5ff; border-radius: 15px; padding: 20px; margin-bottom: 20px; position: relative;">
+      <div style="position: absolute; top: -15px; left: -15px; background-color: #b3e0ff; color: #004466; font-weight: bold; border-radius: 50%; width: 45px; height: 45px; line-height: 45px; text-align: center; font-size: 18px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">2</div>
+      <div style="margin-left: 50px; color: #00334d;">
+        <p>අනුමැතිය සඳහා රැඳී සිටින්න</p>
+        <p>තිරණය විනාඩි 10ක් ඇතුළත ඔබට ලැබෙනු ඇත</p>
+      </div>
+    </div>
+
+    <div style="background-color: #d4f4dd; border-radius: 15px; padding: 20px; margin-bottom: 20px; position: relative;">
+      <div style="position: absolute; top: -15px; left: -15px; background-color: #b3e0ff; color: #004466; font-weight: bold; border-radius: 50%; width: 45px; height: 45px; line-height: 45px; text-align: center; font-size: 18px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">3</div>
+      <div style="margin-left: 50px; color: #00334d;">
+        <p>මුදල් ඔබගේ ගිණුමට බැරවිය</p>
+        <p>ඔබේ ගිණුමේ තොරතුරු නිරීක්ෂණය කරන්න</p>
+      </div>
+    </div>
+
+    <button style="display: block; width: 100%; background-color: #0a4a63; color: white; padding: 14px; border: none; border-radius: 10px; font-size: 16px; margin-top: 30px; cursor: pointer;">ඉදිරියට යන්න</button>
   </div>
+</section> 
 
-  <section style="background-image: url('https://i.ibb.co/wZxG6tSk/girl-messaging-friend-tell-all-hot-rumors-holding-mobile-phone-hands-smiling-broadly-excit.jpg'); 
-           background-size: cover; background-position: center; color: white; display: flex; align-items: center; justify-content: center; text-align: left; padding: 40px; box-sizing: border-box; position: relative; height: 100vh; font-family: Arial, sans-serif;">
-    <div style="max-width: 400px;">
-      <h1 style="font-size: 28px; font-weight: normal; margin: 0;">
-        තවත් බොහෝ වෙබ් අඩවිවල පෝර්ම් පුරවන්න එපා.<br><br>
-        <strong>අපි සමඟ, විනාඩි කිහිපයකට ඔබට ණය දෙන ලෝකයකට පිවිසුමක්</strong><br><br>
-        ඕනෑමනේඩි ණයක් ලබාගැනීමට ස්ථාවර සුදුසුකම් තිබිය හැක
-      </h1>
-      <a href="#" style="margin-top: 30px; display: inline-block; border: 2px solid white; border-radius: 100px; padding: 15px 40px; font-size: 18px; text-decoration: none; color: white;">
-        දැන් පටන් ගන්න →
-      </a>
+ <div style="padding: 20px; font-family: sans-serif;">
+  <h2 style="font-size: 20px; margin-bottom: 16px;">Feedback from our customers</h2>
+
+  <div id="feedbackSlider" style="display: flex; overflow-x: auto; gap: 16px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scroll-behavior: smooth;">
+    
+    <!-- Card 1 -->
+    <div style="flex: 0 0 auto; background-color: #f7f7f7; border-radius: 12px; width: 300px; padding: 16px; scroll-snap-align: start; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; margin-bottom: 8px;">
+        <img src="https://i.ibb.co/XZvxwmHd/Whats-App-Image-2025-07-13-at-23-14-00-cbd2c44a.jpg" alt="user" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+        <strong>Pawani De Silva</strong>
+      </div>
+      <div style="background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
+        Could you share your feedback about our service?
+      </div>
+      <div style="background-color: #fff; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
+       I was skeptical at first, but you surprised me. The application process was straightforward, and I didn't have to submit a ton of documents. I got the money in my account the same day and used it to
+
+cover an unexpected expense.
+
+Thank you for making it easy.
+
+
+      </div>
     </div>
-  </section>
+
+    <!-- Card 2 -->
+    <div style="flex: 0 0 auto; background-color: #f7f7f7; border-radius: 12px; width: 300px; padding: 16px; scroll-snap-align: start; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; margin-bottom: 8px;">
+        <img src="https://i.ibb.co/ccf7qgbw/Whats-App-Image-2025-07-13-at-23-18-09-63df7b7c.jpg" alt="user" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+        <strong>Sarath Perera</strong>
+      </div>
+      <div style="background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
+        අපගේ සේවාව පිළිබඳ ඔබට මොකක්ද හිතන්නේ..
+
+      </div>
+      <div style="background-color: #fff; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
+       ඇත්තටම ඔයාලගේ ආයතනය හොඳ ආයතනයක්! Thanks CapitalLanka
+
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div style="flex: 0 0 auto; background-color: #f7f7f7; border-radius: 12px; width: 300px; padding: 16px; scroll-snap-align: start; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; margin-bottom: 8px;">
+        <img src="https://i.ibb.co/x8zcLJ5c/Whats-App-Image-2025-07-13-at-23-21-11-fdb9b956.jpg" alt="user" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+        <strong>Ruwan Silva</strong>
+      </div>
+      <div style="background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
+       අපගේ සේවාව පිළිබඳ ඔබට මොකක්ද හිතන්නේ..
+
+      </div>
+      <div style="background-color: #fff; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
+        මගේ දුරකථනයෙන් තමා මං ඇප්ලයි කරේ..ඉතාමත් ඉක්මනින් මුදල් ගන්න ලැබුණා..
+
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div style="flex: 0 0 auto; background-color: #f7f7f7; border-radius: 12px; width: 300px; padding: 16px; scroll-snap-align: start; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; margin-bottom: 8px;">
+        <img src="https://i.ibb.co/84fP0pgk/Whats-App-Image-2025-07-13-at-23-26-07-4ba72b48.jpg" alt="user" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+        <strong>Tharushi Lakmini</strong>
+      </div>
+      <div style="background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
+        Could you share your feedback about our service?
+      </div>
+      <div style="background-color: #fff; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
+       I applied for a loan to pay for my mom's medication, and the process was much faster than I expected. I liked that it didn't require a lot of paperwork - just a few details, and I was good to go.
+
+It was a stress-free experience for me
+
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div style="flex: 0 0 auto; background-color: #f7f7f7; border-radius: 12px; width: 300px; padding: 16px; scroll-snap-align: start; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; margin-bottom: 8px;">
+        <img src="https://i.ibb.co/FCM2Vwy/Whats-App-Image-2025-07-13-at-23-28-16-ef727728.jpg" alt="user" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+        <strong>Yasodhara Fernando</strong>
+      </div>
+      <div style="background-color: #dcf8c6; padding: 10px; border-radius: 10px; margin-bottom: 8px;">
+        Could you share your feedback about our service?
+      </div>
+      <div style="background-color: #fff; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
+        Loved the professionalism and speed. Super service!
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Start of Hero Section -->
+<section style="
+  background-image: url('https://i.ibb.co/wZxG6tSk/girl-messaging-friend-tell-all-hot-rumors-holding-mobile-phone-hands-smiling-broadly-excit.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  color: white; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: left; 
+  padding: 40px; 
+  box-sizing: border-box; 
+  position: relative; 
+  height: 100vh; 
+  font-family: Arial, sans-serif;
+">
+
+  <div style="max-width: 400px;">
+    <h1 style="font-size: 28px; font-weight: normal; margin: 0;">
+      No more filling out forms on countless websites.
+      <br><br>
+      <strong>With our service, in a few minutes you will find dozens of lenders</strong>
+      <br><br>
+      who will approve you a loan<br>
+      with any credit history
+    </h1>
+
+    <a href="#" style="
+      margin-top: 30px; 
+      display: inline-block; 
+      border: 2px solid white; 
+      border-radius: 100px; 
+      padding: 15px 40px; 
+      font-size: 18px; 
+      text-decoration: none; 
+      color: white;
+    ">
+      Start now →
+    </a>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    section {
+      background-position: top center !important;
+      background-size: cover !important;
+      height: auto !important;
+      padding: 60px 20px !important;
+    }
+
+    section h1 {
+      font-size: 20px !important;
+      line-height: 1.4;
+    }
+
+    section a {
+      font-size: 16px !important;
+      padding: 12px 30px !important;
+    }
+  }
+</style>
 
   <div class="mission-section">
-    <h1>අපගේ මෙහෙවර හා අරමුණ – ශ්‍රී ලාංකිකයින්ට ආර්ථික අවස්ථාවන් ලබා දීමයි ඔවුන්ගේ සහ මානවින්ක් ඉලක්ක සපුරා ගැනීමට</h1>
-    <div class="image-group">
-      <div class="image-circle">
-        <img src="https://i.ibb.co/wFh9k1Zs/hispanic-family-smiling-confident-hugging-each-other-isolated-brick-background.jpg" alt="පවුලක් සතුටින්" />
-      </div>
-      <div class="image-circle custom-shape">
-        <img src="https://i.ibb.co/PsXtWNhB/happy-mother-watching-man-playing-with-baby.jpg" alt="සතුටින් සිටින පවුලක්" />
-      </div>
+  <h1>
+    Our mission is to empower Sri Lankans with quick and reliable access to financial opportunities to achieve their goals
+  </h1>
+
+  <div class="image-group">
+    <div class="image-circle">
+      <img src="https://i.ibb.co/wFh9k1Zs/hispanic-family-smiling-confident-hugging-each-other-isolated-brick-background.jpg" alt="https://i.ibb.co/PsXtWNhB/happy-mother-watching-man-playing-with-baby.jpg">
     </div>
-    <a href="#" class="apply-button">දැන් ඇප්ලයි කරන්න</a>
+    <div class="image-circle custom-shape">
+      <img src="https://i.ibb.co/PsXtWNhB/happy-mother-watching-man-playing-with-baby.jpg" alt="Lotus Tower">
+    </div>
   </div>
 
-  <style>
-    .mission-section { font-family: Arial, sans-serif; text-align: center; padding: 30px 20px; max-width: 500px; margin: auto; color: #1c1c1c; }
-    .mission-section h1 { font-size: 24px; line-height: 1.5; margin-bottom: 30px; font-weight: bold; }
-    .mission-section .image-group { display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 40px; flex-wrap: wrap; }
-    .mission-section .image-circle { width: 130px; height: 130px; border-radius: 50%; overflow: hidden; background-color: #eee; }
-    .mission-section .custom-shape { clip-path: polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%); border-radius: 0; }
-    .mission-section .image-circle img { width:100%; height:100%; object-fit: cover; }
-    .mission-section .apply-button { display:inline-block; background-color:#10b981; color:white; font-size:18px; font-weight:bold; padding:15px 30px; border:none; border-radius:12px; cursor:pointer; text-decoration:none; transition: background-color 0.3s ease; }
-    .mission-section .apply-button:hover { background-color:#0f9f6e; }
-  </style>
+  <a href="#" class="apply-button">Apply now</a>
+</div>
 
-  <footer style="background-color:#1b0f3f; color:#ccc; padding:30px 20px; font-family:'Segoe UI', sans-serif; font-size:15px; line-height:1.7;">
-    <div style="margin-bottom:30px;">
-      <p style="margin:14px 0; display:flex; align-items:center;">
-        <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" width="22" style="margin-right:10px;" />
-        <a href="tel:117358358" style="color:#00ff9d; text-decoration:none; font-weight:900; font-size:20px;">117358358</a>
-      </p>
-      <p style="margin:12px 0; display:flex; align-items:center;">
-        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="18" style="margin-right:10px;" />
-        <a href="mailto:info@monigo.lk" style="color:#ccc; text-decoration:none;">info@monigo.lk</a>
-      </p>
-      <p style="margin:12px 0; display:flex; align-items:center;">
-        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827524.png" width="18" style="margin-right:10px;" />
-        <span style="color:#aaa;">සඳුදා – ඉරිදා: උදෑසන 8.30 – සවස 5.30</span>
-      </p>
-    </div>
-    <div style="margin-bottom:30px; text-align:left;">
-      <p style="margin:12px 0; font-weight:bold; color:#fff; font-size:18px;">සමාගම ▾</p>
-      <p style="margin:12px 0; font-weight:bold; color:#fff; font-size:18px;">පාරිභෝගික ▾</p>
-      <p style="margin:12px 0; font-weight:bold; color:#fff; font-size:18px;">සමාජය ▾</p>
-    </div>
-    <div style="display:flex; justify-content:space-between; flex-wrap:wrap; margin-bottom:25px;">
-      <a href="#" style="color:#ccc; text-decoration:none; font-size:15px;">නියම සහ කොන්දේසීන්</a>
-      <a href="#" style="color:#ccc; text-decoration:none; font-size:15px;">ජී�
-    </div>
-  </footer>
+<style>
+  .mission-section {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 30px 20px;
+    max-width: 500px;
+    margin: auto;
+    color: #1c1c1c;
+  }
 
+  .mission-section h1 {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+
+  .mission-section .image-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .mission-section .image-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #eee;
+  }
+
+  .mission-section .custom-shape {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    border-radius: 0;
+  }
+
+  .mission-section .image-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mission-section .apply-button {
+    display: inline-block;
+    background-color: #10b981;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .mission-section .apply-button:hover {
+    background-color: #0f9f6e;
+  }
+</style>
+ </div>
+</div> 
+
+<footer style="background-color:#1b0f3f; color:#ccc; padding:30px 20px; font-family:'Segoe UI', sans-serif; font-size:15px; line-height:1.7;">
+  <!-- Contact Info -->
+  <div style="margin-bottom:30px;">
+    <p style="margin:14px 0; display:flex; align-items:center;">
+      <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" width="22" style="margin-right:10px;" />
+      <a href="tel:117358358" style="color:#00ff9d; text-decoration:none; font-weight:900; font-size:20px;">117358358</a>
+    </p>
+    <p style="margin:12px 0; display:flex; align-items:center;">
+      <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="18" style="margin-right:10px;" />
+      <a href="mailto:info@monigo.lk" style="color:#ccc; text-decoration:none;">info@monigo.lk</a>
+    </p>
+    <p style="margin:12px 0; display:flex; align-items:center;">
+      <img src="https://cdn-icons-png.flaticon.com/512/1827/1827524.png" width="18" style="margin-right:10px;" />
+      <span style="color:#aaa;">Mon - Sun: 8.30am to 5.30pm</span>
+    </p>
+  </div>
+
+  <!-- Section Titles -->
+  <div style="margin-bottom:30px; text-align:left;">
+    <p style="margin:12px 0; font-weight:bold; color:#fff; font-size:18px;">Company ▾</p>
+    <p style="margin:12px 0; font-weight:bold; color:#fff; font-size:18px;">Customer ▾</p>
+    <p style="margin:12px 0; font-weight:bold; color:#fff; font-size:18px;">Social ▾</p>
+  </div>
+
+  <!-- Legal Links -->
+  <div style="display:flex; justify-content:space-between; flex-wrap:wrap; margin-bottom:25px;">
+    <a href="#" style="color:#ccc; text-decoration:none; font-size:15px;">Terms and Conditions</a>
+    <a href="#" style="color:#ccc; text-decoration:none; font-size:15px;">Privacy Policy</a>
+  </div>
+
+  <!-- Company Info -->
+  <div style="font-size:15px; color:#ffffff; line-height:1.6; font-weight:500;">
+    <p style="margin-bottom:10px;">© 2024 - 2025. All rights reserved</p>
+    <p>
+      Monigo | S F Group (PRIVATE) LIMITED is a company duly incorporated and registered under the laws of Sri Lanka, with Company Registration No. PV 00221752 granted by Registrar General of Companies in Colombo. Company Address: No. 341/5, M & M Center, Level 01, Kotte road, Rajagiriya.
+    </p>
+  </div>
+</footer>
+  
+</section>
+<!-- End of Hero Section -->
+<!-- Auto-scroll Script -->
 <script>
   const slider = document.getElementById('feedbackSlider');
   let scrollAmount = 0;
 
   function autoScrollSlider() {
-    const cardWidth = 316;
+    const cardWidth = 316; // 300px card + 16px gap
     scrollAmount += cardWidth;
+
     if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
       scrollAmount = 0;
     }
-    slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-  }
-  setInterval(autoScrollSlider, 2000);
 
-  function calculate(amount) {
-    document.getElementById("instruction").style.display = "none";
-    let months = 0;
-    if (amount >= 40000 && amount <= 80000) {
-      months = 6;
-    } else if (amount >= 100000 && amount <= 300000) {
-      months = 12;
-    } else if (amount >= 400000 && amount <= 500000) {
-      months = 24;
-    } else if (amount == 600000) {
-      months = 30;
-    }
-    const interest = amount * 0.08;
-    const total = amount + interest;
-    const monthly = (total / months).toFixed(2);
-
-    document.getElementById("amount").innerText = amount.toLocaleString();
-    document.getElementById("months").innerText = months;
-    document.getElementById("total").innerText = total.toLocaleString(undefined, { minimumFractionDigits: 2 });
-    document.getElementById("installment").innerText = parseFloat(monthly).toLocaleString(undefined, { minimumFractionDigits: 2 });
-
-    document.getElementById("result").style.display = "block";
-    document.getElementById("applyBtn").disabled = false;
+    slider.scrollTo({
+      left: scrollAmount,
+      behavior: 'smooth'
+    });
   }
 
-  function applyNow() {
-    alert("ඔබේ ණය අයදුම සාර්ථකව යැවිය හැක!");
-  }
-
-  function goHome() {
-    window.location.href = "#";
-  }
-
-  function toggleLanguage() {
-    alert("භාෂා මාරු කිරීම ඉක්මනින් ලබා දෙනු ඇත!");
-  }
+  setInterval(autoScrollSlider, 2000); // Scroll every 3 seconds
 </script>
+
+  <script>
+    function calculate(amount) {
+      document.getElementById("instruction").style.display = "none";
+
+      let months = 0;
+      if (amount >= 40000 && amount <= 80000) {
+        months = 6;
+      } else if (amount >= 100000 && amount <= 300000) {
+        months = 12;
+      } else if (amount >= 400000 && amount <= 500000) {
+        months = 24;
+      } else if (amount == 600000) {
+        months = 30;
+      }
+
+      const interest = amount * 0.08;
+      const total = amount + interest;
+      const monthly = (total / months).toFixed(2);
+
+      document.getElementById("amount").innerText = amount.toLocaleString();
+      document.getElementById("months").innerText = months;
+      document.getElementById("total").innerText = total.toLocaleString(undefined, { minimumFractionDigits: 2 });
+      document.getElementById("installment").innerText = parseFloat(monthly).toLocaleString(undefined, { minimumFractionDigits: 2 });
+
+      document.getElementById("result").style.display = "block";
+      document.getElementById("applyBtn").disabled = false;
+    }
+
+    function applyNow() {
+      alert("ඔබේ ණය අයදුම සාර්ථකව සකසමින් පවතී!");
+    }
+
+    function goHome() {
+      window.location.href = "#"; // Replace with real home URL if needed
+    }
+
+    function toggleLanguage() {
+      alert("Language switching coming soon!");
+    }
+  </script>
 </body>
-</html>
+</html>                          මෙකෙ සියල්ලම තියෙන්නෙ සිංහල ඉංග්‍රීසි කලවමෙ මට මෙක සම්පූර්ණ සිංහල කරලා දෙන්න    එකක්වත් අඩු නැතුව ෆුල් කෝඩ් එකම එවන්න පුළුවන්ද
