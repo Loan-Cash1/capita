@@ -129,40 +129,7 @@
   </div>
 
 <!-- CapitalLanka Eligibility Section -->
-<section style="background-color: #e7f5f9; padding: 40px 20px; text-align: center; font-family: 'Segoe UI', sans-serif;">
-  <div style="max-width: 400px; margin: auto;">
-    <h2 style="margin-bottom: 10px; color: #333;">service?</h2>
 
-    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 30px;">
-      <!-- Blue round icon with "C" letter -->
-      <div style="width: 50px; height: 50px; background-color: #007BFF; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-        <span style="color: white; font-weight: bold; font-size: 20px;">C</span>
-      </div>
-      <span style="font-size: 24px; font-weight: bold; color: #0a4a63; margin-left: 10px;">CapitalLanka</span>
-    </div>
-
-    <!-- Age card -->
-    <div style="background-color: #fff; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-      <div style="color: #007BFF; font-size: 28px;">📅</div>
-      <h3 style="margin: 10px 0 5px; color: #222;">Age</h3>
-      <p style="margin: 0; color: #555;">20 - 60 years old</p>
-    </div>
-
-    <!-- Location card -->
-    <div style="background-color: #fff; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-      <div style="color: #007BFF; font-size: 28px;">🌍</div>
-      <h3 style="margin: 10px 0 5px; color: #222;">Location:</h3>
-      <p style="margin: 0; color: #555;">Nationwide</p>
-    </div>
-
-    <!-- Occupation card -->
-    <div style="background-color: #fff; border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-      <div style="color: #007BFF; font-size: 28px;">👔</div>
-      <h3 style="margin: 10px 0 5px; color: #222;">Occupation:</h3>
-      <p style="margin: 0; color: #555;">Have stable income</p>
-    </div>
-  </div>
-  
 </section>
   <!-- Team Photo Section -->
 <section style="padding: 40px 20px; background-color: #f5faff; font-family: 'Segoe UI', sans-serif; text-align: center;">
@@ -516,17 +483,6 @@ It was a stress-free experience for me
  <script>
   function calculate(amount) {
     document.getElementById("instruction").style.display = "none";
-
-    let months = 0;
-    if (amount >= 40000 && amount <= 80000) {
-      months = 6;
-    } else if (amount >= 100000 && amount <= 300000) {
-      months = 12;
-    } else if (amount >= 400000 && amount <= 500000) {
-      months = 24;
-    } else if (amount == 600000) {
-      months = 30;
-    }
 
     const interest = amount * 0.08;
     const total = amount + interest;
