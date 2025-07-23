@@ -1,179 +1,42 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CapitalLanka Loan</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CapitalLanka Loan</title>
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9; }
+  .top-bar { position:sticky; top:0; z-index:1000; display:flex; justify-content:space-between; align-items:center; padding:10px 15px; background:rgba(255,255,255,0.7); backdrop-filter:blur(8px); box-shadow:0 1px 5px rgba(0,0,0,0.1); }
+  .top-bar button { background:transparent; border:1px solid #3498db; color:#3498db; padding:5px 10px; border-radius:4px; font-size:14px; cursor:pointer; }
+  .top-bar button:hover { background:#3498db; color:white; }
 
-    .top-bar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 15px;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    }
+  .apply-now-btn, .mission-section .apply-button {
+    display: inline-block; background: #10b981; color: white; font-size:18px; font-weight:bold;
+    padding: 15px 30px; border-radius:12px; text-decoration:none; text-align:center; transition:0.3s;
+  }
+  .apply-now-btn:hover, .mission-section .apply-button:hover { background:#0f9f6e; }
 
-    .top-bar button {
-      background: transparent;
-      border: 1px solid #3498db;
-      color: #3498db;
-      padding: 5px 10px;
-      border-radius: 4px;
-      font-size: 14px;
-      cursor: pointer;
-    }
+  .mission-section { text-align:center; padding:30px 20px; max-width:500px; margin:auto; color:#1c1c1c; }
+  .mission-section h1 { font-size:24px; margin-bottom:30px; font-weight:bold; }
+  .image-group { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:40px; }
+  .image-circle { width:130px; height:130px; border-radius:50%; overflow:hidden; }
+  .custom-shape { clip-path: polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%); border-radius:0; }
+  .image-circle img { width:100%; height:100%; object-fit:cover; }
 
-    .top-bar button:hover {
-      background: #3498db;
-      color: white;
-    }
+  #feedbackSlider { display:flex; overflow-x:auto; gap:16px; scroll-snap-type:x mandatory; scroll-behavior:smooth; margin:20px; }
+  #feedbackSlider>div { flex:0 0 auto; width:300px; background:#f7f7f7; border-radius:12px; padding:16px; scroll-snap-align:start; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
 
-    .apply-now-btn,
-    .mission-section .apply-button {
-      display: inline-block;
-      background: #10b981;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 15px 30px;
-      border-radius: 12px;
-      text-decoration: none;
+  footer { background:#1b0f3f; color:#ccc; padding:30px 20px; font-size:15px; line-height:1.7; }
+
+  @media(max-width:768px) {
+    .apply-now-btn, .mission-section .apply-button {
+      display: block;
+      width: 80%;
+      margin: 20px auto;
       text-align: center;
-      transition: 0.3s;
     }
-
-    .apply-now-btn:hover,
-    .mission-section .apply-button:hover {
-      background: #0f9f6e;
-    }
-
-    .hero-section {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url('https://i.ibb.co/7xrbSbzX/Whats-App-Image-2025-07-13-at-14-14-00-a37d404a.jpg') center/cover no-repeat;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: left;
-      height: 100vh;
-    }
-
-    .hero-content {
-      max-width: 400px;
-      padding: 20px;
-    }
-
-    .hero-content h1 {
-      font-size: 28px;
-      font-weight: normal;
-    }
-
-    .mission-section {
-      text-align: center;
-      padding: 30px 20px;
-      max-width: 500px;
-      margin: auto;
-      color: #1c1c1c;
-    }
-
-    .mission-section h1 {
-      font-size: 24px;
-      margin-bottom: 30px;
-      font-weight: bold;
-    }
-
-    .image-group {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-
-    .image-circle {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      overflow: hidden;
-    }
-
-    .custom-shape {
-      clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-      border-radius: 0;
-    }
-
-    .image-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    #feedbackSlider {
-      display: flex;
-      overflow-x: auto;
-      gap: 16px;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      margin: 20px;
-    }
-
-    #feedbackSlider > div {
-      flex: 0 0 auto;
-      width: 300px;
-      background: #f7f7f7;
-      border-radius: 12px;
-      padding: 16px;
-      scroll-snap-align: start;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    footer {
-      background: #1b0f3f;
-      color: #ccc;
-      padding: 30px 20px;
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    @media(max-width: 768px) {
-      .apply-now-btn,
-      .mission-section .apply-button {
-        display: block;
-        width: 80%;
-        margin: 20px auto;
-        text-align: center;
-      }
-
-      .hero-content h1 {
-        font-size: 20px;
-        padding: 0 10px;
-      }
-
-      .hero-content {
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        padding: 0 10px;
-      }
-
-      .top-bar {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
@@ -184,9 +47,9 @@
 </div>
 
 <!-- Hero Section -->
-<section class="hero-section">
-  <div class="hero-content">
-    <h1>
+<section style="background:url('https://i.ibb.co/wZxG6tSk/girl-messaging-friend-tell-all-hot-rumors-holding-mobile-phone-hands-smiling-broadly-excit.jpg') center/cover; color:white; display:flex; align-items:center; justify-content:center; text-align:left; height:100vh;">
+  <div style="max-width:400px;">
+    <h1 style="font-size:28px; font-weight:normal;">
       No more filling out forms on countless websites.<br><br>
       <strong>With our service, in a few minutes you will find dozens of lenders</strong><br><br>
       who will approve you a loan with any credit history
@@ -238,8 +101,8 @@
 <div class="mission-section">
   <h1>Our mission is to empower Sri Lankans with quick and reliable access to financial opportunities to achieve their goals</h1>
   <div class="image-group">
-    <div class="image-circle"><img src="https://i.ibb.co/wFh9k1Zs/hispanic-family-smiling-confident-hugging-each-other-isolated-brick-background.jpg" alt="Family" /></div>
-    <div class="image-circle custom-shape"><img src="https://i.ibb.co/PsXtWNhB/happy-mother-watching-man-playing-with-baby.jpg" alt="Mother and Baby" /></div>
+    <div class="image-circle"><img src="https://i.ibb.co/wFh9k1Zs/hispanic-family-smiling-confident-hugging-each-other-isolated-brick-background.jpg"></div>
+    <div class="image-circle custom-shape"><img src="https://i.ibb.co/PsXtWNhB/happy-mother-watching-man-playing-with-baby.jpg"></div>
   </div>
   <a href="https://loan-cash1.github.io/capital/" class="apply-button">Apply now</a>
 </div>
@@ -253,19 +116,10 @@
 </footer>
 
 <script>
-function goHome() {
-  window.location.href = "#";
-}
-function toggleLanguage() {
-  alert("Language switching coming soon!");
-}
-const slider = document.getElementById('feedbackSlider');
-let scroll = 0;
-setInterval(() => {
-  scroll += 316;
-  if (scroll >= slider.scrollWidth - slider.clientWidth) scroll = 0;
-  slider.scrollTo({ left: scroll, behavior: 'smooth' });
-}, 3000);
+function goHome(){ window.location.href="#"; }
+function toggleLanguage(){ alert("Language switching coming soon!"); }
+const slider=document.getElementById('feedbackSlider'); let scroll=0;
+setInterval(()=>{scroll+=316;if(scroll>=slider.scrollWidth-slider.clientWidth)scroll=0;slider.scrollTo({left:scroll,behavior:'smooth'});},3000);
 </script>
 
 </body>
